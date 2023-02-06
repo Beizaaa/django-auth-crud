@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Task creator{% endblock %}
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <nav class="nav nav-pills nav-justified mt-5">
+                <a class="nav-link active" href="/tasks">Volver</a>
+            </nav>
+            
+            <form action="/tasks/create" method="POST" class="card card-body mt-5">
+                <h1 class="text-center">Create Task</h1>
+                {{error}}
+                {% csrf_token %}
+                {{form.as_p}}
+        
+                <button class="btn btn-primary">Save</button>
+        
+            </form>
+        </div>    
+    </div>
+</main>
+
+{% endblock %}
